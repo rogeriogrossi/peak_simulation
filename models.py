@@ -13,14 +13,19 @@ class Peak:
     def __init__(self, peak_type: dict, peak_parameters: dict):
         self.peak_type = peak_type
         self.peak_parameters = peak_parameters
+        self.scale_factor = 1e-2
+        self.scale()
         self.x = self.get_x()
         self.y = []
-        self.fity = []
+        self.fity = np.zeros(self.x.shape[0])
         self.generate()
+
+    def scale(self):
+        self.peak_parameters['sigma'] = self.peak_parameters['sigma']*self.scale_factor
 
     def get_x(self):
         #Larger the standard deviation large the xlim
-        lim_increment = 15
+        lim_increment = 0.4
         xlim = [self.peak_parameters['center']-lim_increment,
                 self.peak_parameters['center']+lim_increment]
         return np.arange(xlim[0],xlim[1],self.peak_parameters['resolution'])
@@ -43,7 +48,8 @@ class Peak:
                                 loc=self.peak_parameters['center'],
                                 scale=self.peak_parameters['sigma'])
 
-        self.y = self.peak_parameters['intensity'] * (alpha * (gaussian) + (1 - alpha) * (lorentizian)) + self.noise()
+        self.y = self.peak_parameters['intensity'] * (alpha * (gaussian) + \
+                (1 - alpha) * (lorentizian)) + (1/self.scale_factor)*self.noise()
         return self
 
 
@@ -72,7 +78,7 @@ class Peak:
 
 
     def noise(self):
-        return np.random.normal(size=self.x.shape[0],loc=10)*self.peak_parameters['noise']*6
+        return np.random.normal(size=self.x.shape[0],loc=10)*self.peak_parameters['noise']
 
 
     def fit(self):
@@ -112,11 +118,13 @@ class MatplotGraphic(FigureCanvasQTAgg):
         self.plot1 = self.ax.scatter(self.peak_data.x, self.peak_data.y, marker='o',facecolor='b',
                                      edgecolor='b', s=10,label='Obs_data')
         self.ax.legend()
+        self.ax.set_ylim(-0.01*np.max(self.peak_data.y),1.3*np.max(self.peak_data.y))
         self.draw()
 
     def plot_fit(self):
         plotfit = self.ax.plot(self.peak_data.x,self.peak_data.fity, color='r', lw=2, label='Calc_data')
         self.ax.axvline(self.peak_data.peak_parameters['center'], linestyle='--', color='green', label='real center')
-        self.ax.set_title(f'obs-Center: {self.peak_data.peak_parameters["center"]} | calc-Center: {self.peak_data.popt[0]:.2f}')
+        self.ax.set_title(f'obs-Center: {self.peak_data.peak_parameters["center"]:.3f}\
+        calc-Center: {self.peak_data.popt[0]:.3f}')
         self.ax.legend()
         self.draw()

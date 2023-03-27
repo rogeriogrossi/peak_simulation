@@ -1,7 +1,9 @@
 from main_window import *
 from models import *
-from PySide6.QtWidgets import QWidget, QMainWindow, QPushButton, QApplication
+from PySide6.QtWidgets import QWidget, QMainWindow, QPushButton, QApplication, QFileDialog
 import sys
+import os
+import pandas as pd
 from qt_material import list_themes, apply_stylesheet
 matplotlib.use('Qt5Agg')
 
@@ -40,6 +42,8 @@ class PeakWindow(Ui_MainWindow, QMainWindow):
         #Buttons
         self.btPlot.clicked.connect(self.plot)
         self.btFit.clicked.connect(self.plot_fit)
+        self.btExport.clicked.connect(self.export_data)
+
         #Plot
         self.plot()
 
@@ -69,6 +73,7 @@ class PeakWindow(Ui_MainWindow, QMainWindow):
 
 
     def plot(self):
+        self.get_peak_parameters()
         self.peak = Peak(self.type_dict, self.peak_dict)
         self.matplotfig = MatplotGraphic(self.peak)
         self.removeToolBar(self.wtoobar)
@@ -80,6 +85,19 @@ class PeakWindow(Ui_MainWindow, QMainWindow):
     def plot_fit(self):
         self.peak.fit()
         self.matplotfig.plot_fit()
+
+    def export_data(self):
+        path, _ = QFileDialog.getSaveFileName(
+                self.centralwidget,
+                'Save csv',
+                os.getcwd(),
+            )
+        data = self.get_data()
+        data.to_csv(path+'.csv',index=False)
+
+    def get_data(self):
+        data = pd.DataFrame({'tth':self.peak.x,'obs':self.peak.y,'calc':self.peak.fity})
+        return data
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

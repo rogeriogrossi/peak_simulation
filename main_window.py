@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_window_test_2.ui'
+## Form generated from reading UI file 'main_window.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -33,15 +33,15 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.widget = QWidget(self.centralwidget)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(11, 11, 831, 691))
-        self.gridLayout_4 = QGridLayout(self.widget)
+        self.layoutWidget = QWidget(self.centralwidget)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(11, 11, 831, 691))
+        self.gridLayout_4 = QGridLayout(self.layoutWidget)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.gbType = QGroupBox(self.widget)
+        self.gbType = QGroupBox(self.layoutWidget)
         self.gbType.setObjectName(u"gbType")
         font = QFont()
         font.setBold(True)
@@ -75,7 +75,7 @@ class Ui_MainWindow(object):
         self.sbRatio.setAccelerated(True)
         self.sbRatio.setMaximum(1.000000000000000)
         self.sbRatio.setSingleStep(0.010000000000000)
-        self.sbRatio.setValue(0.300000000000000)
+        self.sbRatio.setValue(0.200000000000000)
 
         self.gridLayout_2.addWidget(self.sbRatio, 1, 1, 1, 1)
 
@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.gbType, 0, 0, 1, 1)
 
-        self.groupBox_2 = QGroupBox(self.widget)
+        self.groupBox_2 = QGroupBox(self.layoutWidget)
         self.groupBox_2.setObjectName(u"groupBox_2")
         self.groupBox_2.setFont(font)
         self.gridLayout = QGridLayout(self.groupBox_2)
@@ -104,6 +104,8 @@ class Ui_MainWindow(object):
         self.sbCenter.setObjectName(u"sbCenter")
         self.sbCenter.setDecimals(3)
         self.sbCenter.setMaximum(99.989999999999995)
+        self.sbCenter.setSingleStep(0.010000000000000)
+        self.sbCenter.setValue(9.330000000000000)
 
         self.gridLayout.addWidget(self.sbCenter, 0, 1, 1, 1)
 
@@ -117,6 +119,7 @@ class Ui_MainWindow(object):
         self.sbAssymetry.setMinimum(-1.000000000000000)
         self.sbAssymetry.setMaximum(1.000000000000000)
         self.sbAssymetry.setSingleStep(0.010000000000000)
+        self.sbAssymetry.setValue(0.700000000000000)
 
         self.gridLayout.addWidget(self.sbAssymetry, 0, 3, 1, 1)
 
@@ -149,7 +152,7 @@ class Ui_MainWindow(object):
         self.sbSigma.setDecimals(3)
         self.sbSigma.setMaximum(15.000000000000000)
         self.sbSigma.setSingleStep(0.050000000000000)
-        self.sbSigma.setValue(1.000000000000000)
+        self.sbSigma.setValue(3.000000000000000)
 
         self.gridLayout.addWidget(self.sbSigma, 1, 1, 1, 1)
 
@@ -162,6 +165,7 @@ class Ui_MainWindow(object):
         self.sbNoise.setObjectName(u"sbNoise")
         self.sbNoise.setMaximum(30.000000000000000)
         self.sbNoise.setSingleStep(0.100000000000000)
+        self.sbNoise.setValue(1.000000000000000)
 
         self.gridLayout.addWidget(self.sbNoise, 1, 3, 1, 1)
 
@@ -173,10 +177,10 @@ class Ui_MainWindow(object):
         self.sbResolution = QDoubleSpinBox(self.groupBox_2)
         self.sbResolution.setObjectName(u"sbResolution")
         self.sbResolution.setDecimals(3)
-        self.sbResolution.setMinimum(0.010000000000000)
+        self.sbResolution.setMinimum(0.001000000000000)
         self.sbResolution.setMaximum(2.000000000000000)
-        self.sbResolution.setSingleStep(0.010000000000000)
-        self.sbResolution.setValue(0.500000000000000)
+        self.sbResolution.setSingleStep(0.001000000000000)
+        self.sbResolution.setValue(0.010000000000000)
 
         self.gridLayout.addWidget(self.sbResolution, 1, 5, 1, 1)
 
@@ -185,17 +189,23 @@ class Ui_MainWindow(object):
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.btPlot = QPushButton(self.widget)
+        self.btPlot = QPushButton(self.layoutWidget)
         self.btPlot.setObjectName(u"btPlot")
         self.btPlot.setEnabled(True)
 
         self.verticalLayout.addWidget(self.btPlot)
 
-        self.btFit = QPushButton(self.widget)
+        self.btFit = QPushButton(self.layoutWidget)
         self.btFit.setObjectName(u"btFit")
         self.btFit.setEnabled(True)
 
         self.verticalLayout.addWidget(self.btFit)
+
+        self.btExport = QPushButton(self.layoutWidget)
+        self.btExport.setObjectName(u"btExport")
+        self.btExport.setEnabled(True)
+
+        self.verticalLayout.addWidget(self.btExport)
 
 
         self.gridLayout_3.addLayout(self.verticalLayout, 0, 2, 1, 1)
@@ -203,7 +213,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addLayout(self.gridLayout_3, 0, 0, 1, 1)
 
-        self.graphic = QWidget(self.widget)
+        self.graphic = QWidget(self.layoutWidget)
         self.graphic.setObjectName(u"graphic")
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
@@ -244,5 +254,6 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Resolution:", None))
         self.btPlot.setText(QCoreApplication.translate("MainWindow", u"Plot", None))
         self.btFit.setText(QCoreApplication.translate("MainWindow", u"Fit", None))
+        self.btExport.setText(QCoreApplication.translate("MainWindow", u"Export Data", None))
     # retranslateUi
 

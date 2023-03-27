@@ -23,7 +23,7 @@
    <string>Peak Simulation</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>11</x>
@@ -93,7 +93,7 @@
              <double>0.010000000000000</double>
             </property>
             <property name="value">
-             <double>0.300000000000000</double>
+             <double>0.200000000000000</double>
             </property>
            </widget>
           </item>
@@ -153,6 +153,12 @@
             <property name="maximum">
              <double>99.989999999999995</double>
             </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>9.330000000000000</double>
+            </property>
            </widget>
           </item>
           <item row="0" column="2">
@@ -172,6 +178,9 @@
             </property>
             <property name="singleStep">
              <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.700000000000000</double>
             </property>
            </widget>
           </item>
@@ -228,7 +237,7 @@
              <double>0.050000000000000</double>
             </property>
             <property name="value">
-             <double>1.000000000000000</double>
+             <double>3.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -247,6 +256,9 @@
             <property name="singleStep">
              <double>0.100000000000000</double>
             </property>
+            <property name="value">
+             <double>1.000000000000000</double>
+            </property>
            </widget>
           </item>
           <item row="1" column="4">
@@ -262,16 +274,16 @@
              <number>3</number>
             </property>
             <property name="minimum">
-             <double>0.010000000000000</double>
+             <double>0.001000000000000</double>
             </property>
             <property name="maximum">
              <double>2.000000000000000</double>
             </property>
             <property name="singleStep">
-             <double>0.010000000000000</double>
+             <double>0.001000000000000</double>
             </property>
             <property name="value">
-             <double>0.500000000000000</double>
+             <double>0.010000000000000</double>
             </property>
            </widget>
           </item>
@@ -297,6 +309,16 @@
            </property>
            <property name="text">
             <string>Fit</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btExport">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="text">
+            <string>Export Data</string>
            </property>
           </widget>
          </item>
