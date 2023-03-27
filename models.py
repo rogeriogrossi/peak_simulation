@@ -96,12 +96,6 @@ class Peak:
         self.fity = self.fit_function(self.x,center_opt,sigma_opt,a_opt, intensity,bias)
         return self
 
-    def get_data(self):
-        pass
-
-
-
-
 
 class MatplotGraphic(FigureCanvasQTAgg):
     def __init__(self, peak_data: Peak,width=10, height=7,dpi=150):
