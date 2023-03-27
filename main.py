@@ -61,7 +61,6 @@ class PeakWindow(Ui_MainWindow, QMainWindow):
         self.type_dict = type_dict
         return self
 
-
     def get_peak_parameters(self):
         self.peak_dict['center'] = self.sbCenter.value()
         self.peak_dict['sigma'] = self.sbSigma.value()
