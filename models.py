@@ -18,7 +18,6 @@ class Peak:
     def __init__(self, peak_type: dict, peak_parameters: dict):
         self.peak_type = peak_type
         self.peak_parameters = peak_parameters
-        self.scale_factor = 1e-2
         self.scale()
         self.x = self.get_x()
         self.y = []
@@ -56,7 +55,7 @@ class Peak:
 
         self.y = self.peak_parameters['intensity'] * (alpha * (gaussian) + \
                 (1 - alpha) * (lorentizian))
-        self.noise_y = self.y + (1/self.scale_factor)*self.noise()
+        self.noise_y = self.y + (1/self.peak_type['scalefactor'])*self.noise()
         return self
 
 
