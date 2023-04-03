@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>896</width>
-    <height>769</height>
+    <width>901</width>
+    <height>778</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -22,332 +22,664 @@
   <property name="windowTitle">
    <string>Peak Simulation</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/roger/Downloads/ico.png</normaloff>C:/Users/roger/Downloads/ico.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+background-color: rgb(100,100,100);
+}</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>35</width>
+    <height>35</height>
+   </size>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>11</y>
-      <width>831</width>
-      <height>691</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_4">
-     <item row="0" column="0">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <widget class="QGroupBox" name="gbType">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="title">
-          <string>Peak Type</string>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0" colspan="2">
-           <widget class="QRadioButton" name="rbGaussian">
-            <property name="text">
-             <string>Gaussian</string>
-            </property>
-            <property name="checked">
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="gbType">
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox{
+color: White;
+}</string>
+          </property>
+          <property name="title">
+           <string>Peak Type</string>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0" colspan="2">
+            <widget class="QRadioButton" name="rbGaussian">
+             <property name="styleSheet">
+              <string notr="true">QRadioButton {
+    color:  white;
+   font-weight: bold
+}
+
+QRadioButton::indicator {
+    width:                  10px;
+    height:                 10px;
+    border-radius:          7px;
+}
+
+QRadioButton::indicator:checked {
+ background-color:  rgba(110, 0, 240, 200);
+    border:                 2px solid white;
+}
+
+QRadioButton::indicator:unchecked {
+ background-color: White;
+    border:                 2px solid white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Gaussian</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QDoubleSpinBox" name="sbRatio">
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="accelerated">
+              <bool>true</bool>
+             </property>
+             <property name="maximum">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.010000000000000</double>
+             </property>
+             <property name="value">
+              <double>0.200000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QRadioButton" name="rbPseudoVoigt">
+             <property name="styleSheet">
+              <string notr="true">QRadioButton {
+    color:  white;
+   font-weight: bold
+}
+
+QRadioButton::indicator {
+    width:                  10px;
+    height:                 10px;
+    border-radius:          7px;
+}
+
+QRadioButton::indicator:checked {
+ background-color:  rgba(110, 0, 240, 200);
+    border:                 2px solid white;
+}
+
+QRadioButton::indicator:unchecked {
+ background-color: White;
+    border:                 2px solid white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Pseudo-Voigt</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QRadioButton" name="rbLorentizian">
+             <property name="styleSheet">
+              <string notr="true">QRadioButton {
+    color:  white;
+   font-weight: bold
+}
+
+QRadioButton::indicator {
+    width:                  10px;
+    height:                 10px;
+    border-radius:          7px;
+}
+
+QRadioButton::indicator:checked {
+ background-color:  rgba(110, 0, 240, 200);
+    border:                 2px solid white;
+}
+
+QRadioButton::indicator:unchecked {
+ background-color: White;
+    border:                 2px solid white;
+}</string>
+             </property>
+             <property name="text">
+              <string>Lorentizian</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="lbRatio">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>G/L Ratio:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="label_7">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>Resolution:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QDoubleSpinBox" name="sbResolution">
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="decimals">
+              <number>3</number>
+             </property>
+             <property name="minimum">
+              <double>0.001000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>2.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.001000000000000</double>
+             </property>
+             <property name="value">
+              <double>0.010000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox{
+color: White
+}</string>
+          </property>
+          <property name="title">
+           <string>Peak Parameters</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>Center:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDoubleSpinBox" name="sbCenter">
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="decimals">
+              <number>3</number>
+             </property>
+             <property name="maximum">
+              <double>99.989999999999995</double>
+             </property>
+             <property name="singleStep">
+              <double>0.010000000000000</double>
+             </property>
+             <property name="value">
+              <double>9.330000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_4">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>Assymetry:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QDoubleSpinBox" name="sbAssymetry">
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="minimum">
+              <double>-1.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.010000000000000</double>
+             </property>
+             <property name="value">
+              <double>0.700000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_3">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>Intensity:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <widget class="QDoubleSpinBox" name="sbIntensity">
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="decimals">
+              <number>0</number>
+             </property>
+             <property name="minimum">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>20.000000000000000</double>
+             </property>
+             <property name="value">
+              <double>100.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;σ:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QDoubleSpinBox" name="sbSigma">
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="decimals">
+              <number>3</number>
+             </property>
+             <property name="maximum">
+              <double>15.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.050000000000000</double>
+             </property>
+             <property name="value">
+              <double>3.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="label_5">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>Noise:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QDoubleSpinBox" name="sbNoise">
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="maximum">
+              <double>30.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+             <property name="value">
+              <double>1.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QLabel" name="label_6">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color: White
+}</string>
+             </property>
+             <property name="text">
+              <string>Scale Factor:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="5">
+            <widget class="QDoubleSpinBox" name="sbScale">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="statusTip">
+              <string/>
+             </property>
+             <property name="whatsThis">
+              <string/>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QDoubleSpinBox {
+    color: white;
+    selection-background-color: black;
+    background:  rgba(110, 0, 240, 200);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
+}</string>
+             </property>
+             <property name="decimals">
+              <number>4</number>
+             </property>
+             <property name="minimum">
+              <double>0.000100000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.001000000000000</double>
+             </property>
+             <property name="value">
+              <double>0.010000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="2" column="0">
+           <widget class="QPushButton" name="btExport">
+            <property name="enabled">
              <bool>true</bool>
             </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QRadioButton" name="rbLorentizian">
-            <property name="text">
-             <string>Lorentizian</string>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+  border-radius: 10px;
+  padding: 5px;
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(117, 0, 248, 180), stop:0.988636 rgba(153, 79, 252, 180));
+color: White;
+font-size: 15px;
+font-weight: bold
+    }
+QPushButton:hover {
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(110, 0, 240, 220), stop:0.988636 rgba(153, 79, 252, 220));
+color: #DDDDDD
+    }
+QPushButton:pressed {
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(110, 0, 240, 255), stop:0.988636 rgba(153, 79, 252, 255));
+color: #AAAAAA
+}</string>
             </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QRadioButton" name="rbPseudoVoigt">
             <property name="text">
-             <string>Pseudo-Voigt</string>
+             <string>Export Data</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="lbRatio">
-            <property name="text">
-             <string>G/L Ratio:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QDoubleSpinBox" name="sbRatio">
-            <property name="accelerated">
+           <widget class="QPushButton" name="btFit">
+            <property name="enabled">
              <bool>true</bool>
             </property>
-            <property name="maximum">
-             <double>1.000000000000000</double>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+  border-radius: 10px;
+  padding: 5px;
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(117, 0, 248, 180), stop:0.988636 rgba(153, 79, 252, 180));
+color: White;
+font-size: 15px;
+font-weight: bold
+    }
+QPushButton:hover {
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(110, 0, 240, 220), stop:0.988636 rgba(153, 79, 252, 220));
+color: #DDDDDD
+    }
+QPushButton:pressed {
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(110, 0, 240, 255), stop:0.988636 rgba(153, 79, 252, 255));
+color: #AAAAAA
+}</string>
             </property>
-            <property name="singleStep">
-             <double>0.010000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.200000000000000</double>
+            <property name="text">
+             <string>Fit</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="1" column="3">
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QGroupBox" name="groupBox_2">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="title">
-          <string>Peak Parameters</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
-           <widget class="QLabel" name="label">
+           <widget class="QPushButton" name="btPlot">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+  border-radius: 10px;
+  padding: 5px;
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(117, 0, 248, 180), stop:0.988636 rgba(153, 79, 252, 180));
+color: White;
+font-size: 15px;
+font-weight: bold
+    }
+QPushButton:hover {
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(110, 0, 240, 220), stop:0.988636 rgba(153, 79, 252, 220));
+color: #DDDDDD
+    }
+QPushButton:pressed {
+ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.693182, y2:0.693, stop:0.0454545 rgba(110, 0, 240, 255), stop:0.988636 rgba(153, 79, 252, 255));
+color: #AAAAAA
+}</string>
+            </property>
             <property name="text">
-             <string>Center:</string>
+             <string>Plot</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QDoubleSpinBox" name="sbCenter">
-            <property name="decimals">
-             <number>3</number>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="maximum">
-             <double>99.989999999999995</double>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
             </property>
-            <property name="singleStep">
-             <double>0.010000000000000</double>
-            </property>
-            <property name="value">
-             <double>9.330000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Assymetry:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QDoubleSpinBox" name="sbAssymetry">
-            <property name="minimum">
-             <double>-1.000000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>1.000000000000000</double>
-            </property>
-            <property name="singleStep">
-             <double>0.010000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.700000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="4">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Intensity:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="5">
-           <widget class="QDoubleSpinBox" name="sbIntensity">
-            <property name="decimals">
-             <number>0</number>
-            </property>
-            <property name="minimum">
-             <double>1.000000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>300.000000000000000</double>
-            </property>
-            <property name="singleStep">
-             <double>20.000000000000000</double>
-            </property>
-            <property name="value">
-             <double>100.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="font">
-             <font>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;σ:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-           </widget>
+           </spacer>
           </item>
           <item row="1" column="1">
-           <widget class="QDoubleSpinBox" name="sbSigma">
-            <property name="decimals">
-             <number>3</number>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="maximum">
-             <double>15.000000000000000</double>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
             </property>
-            <property name="singleStep">
-             <double>0.050000000000000</double>
-            </property>
-            <property name="value">
-             <double>3.000000000000000</double>
-            </property>
-           </widget>
+           </spacer>
           </item>
-          <item row="1" column="2">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Noise:</string>
+          <item row="2" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QDoubleSpinBox" name="sbNoise">
-            <property name="maximum">
-             <double>30.000000000000000</double>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
             </property>
-            <property name="singleStep">
-             <double>0.100000000000000</double>
-            </property>
-            <property name="value">
-             <double>1.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="4">
-           <widget class="QLabel" name="label_6">
-            <property name="text">
-             <string>Resolution:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="5">
-           <widget class="QDoubleSpinBox" name="sbResolution">
-            <property name="decimals">
-             <number>3</number>
-            </property>
-            <property name="minimum">
-             <double>0.001000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>2.000000000000000</double>
-            </property>
-            <property name="singleStep">
-             <double>0.001000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.010000000000000</double>
-            </property>
-           </widget>
+           </spacer>
           </item>
          </layout>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <widget class="QPushButton" name="btPlot">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="text">
-            <string>Plot</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btFit">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="text">
-            <string>Fit</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btExport">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="text">
-            <string>Export Data</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-     <item row="1" column="0">
-      <widget class="QWidget" name="graphic" native="true">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>5</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: rgb(85, 0, 255)</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QWidget" name="graphic" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>5</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+border: 3px solid white;
+background: rgb(85, 0, 255)}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>896</width>
+     <width>901</width>
      <height>21</height>
     </rect>
    </property>
